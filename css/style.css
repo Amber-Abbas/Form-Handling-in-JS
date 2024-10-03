@@ -1,0 +1,97 @@
+.header {
+  box-shadow: 0px 1.42px 2.85px 0px #3333331a;
+  background-color: #ffffff;
+}
+.left-head-text .up-text {
+  font-family: Roboto;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 23.44px;
+  text-align: left;
+}
+.left-head-text .bot-text {
+  font-family: Roboto;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 16.41px;
+  text-align: left;
+
+  color: #2892fd;
+}
+.left-head-text .bot-text span {
+  font-family: Roboto;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 16.41px;
+  text-align: left;
+  color: #333333;
+}
+.right-head-text .up-text {
+  font-family: Roboto;
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 11.72px;
+  text-align: left;
+}
+.right-head-text .low-text {
+  color: #333333b2;
+  font-family: Roboto;
+  font-size: 8.54px;
+  font-weight: 400;
+  line-height: 10px;
+  text-align: left;
+}
+.company-manage .company {
+  color: #333333;
+  font-family: Roboto;
+  font-size: 16px;
+  font-weight: 550;
+  line-height: 18.75px;
+  text-align: left;
+}
+.company-manage .manage {
+  font-family: Roboto;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 13px;
+  text-align: left;
+  color: #333333;
+  margin-left: 29px;
+}
+
+.form-container {
+  box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.1); /* Slightly more transparent */
+  border-radius: 8px;
+  border: 1px solid transparent; /* Adjust as needed */
+  padding: 74px; /* Adds space inside the container */
+  background-color: #fff; /* White background */
+}
+.custom-choose-btn {
+  background-color: #2892fd;
+  padding: 6px 12px 6px 12px;
+  border-radius: 3px;
+  text-align: center;
+  font-family: Roboto;
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 11.72px;
+  text-align: left;
+  color: #ffffff;
+  border: 0;
+}
+.only-png-text {
+  font-family: Roboto;
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 13px;
+  text-align: left;
+  color: #333333;
+  opacity: 0.8;
+  margin-top: 5px;
+}
+.only-png-text span {
+  color: #2892fd;
+}
+.upload-text {
+  padding: 12px;
+}
