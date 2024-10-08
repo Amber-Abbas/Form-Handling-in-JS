@@ -65,6 +65,8 @@
   border: 1px solid transparent; /* Adjust as needed */
   padding: 74px; /* Adds space inside the container */
   background-color: #fff; /* White background */
+  margin-left: 13px;
+  margin-right: 13px;
 }
 .custom-choose-btn {
   background-color: #2892fd;
@@ -94,4 +96,21 @@
 }
 .upload-text {
   padding: 12px;
+}
+.form-label span {
+  color: red;
+  font-weight: 800;
+}
+.custom-submit-btn {
+  background-color: #2892fd;
+  padding: 20px 35px 20px 35px;
+  border-radius: 3px;
+  text-align: center;
+  font-family: Roboto;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 11.72px;
+  text-align: right;
+  color: #ffffff;
+  border: 0;
 }
