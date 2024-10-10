@@ -11,6 +11,12 @@
       rel="stylesheet"
     />
     <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+    <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css"
     />
@@ -99,16 +105,17 @@
           <div class="form-box">
             <div class="row">
               <div class="col-7">
-                <div class="mb-3">
+                <div class="mb-3" id="comp-name-box">
                   <label for="exampleFormControlInput1" class="form-label"
                     >Company Name: <span>*</span></label
                   >
                   <input
                     type="text"
                     class="form-control"
-                    id="exampleFormControlInput1"
+                    id="comp-name"
                     placeholder="CrecenTech Systems Pvt Ltd."
                   />
+                  <span class="form-error"></span>
                 </div>
               </div>
               <div class="col-5">
@@ -126,50 +133,56 @@
                   <span class="form-error"></span>
                 </div>
               </div>
-              <div class="col-4">
-                <div class="mb-3">
-                  <label for="exampleFormControlInput1" class="form-label"
-                    >Employee Code:<span>*</span></label
-                  >
-                  <input
-                    type="null"
-                    class="form-control"
-                    id="exampleFormControlInput1"
-                    placeholder="Prefix"
-                  />
+              <div class="code-box d-flex" id="emp-code-box">
+                <div class="col-4">
+                  <div class="me-2" id="prefix-box">
+                    <label for="exampleFormControlInput1" class="form-label"
+                      >Employee Code:<span>*</span></label
+                    >
+                    <input
+                      type="text"
+                      class="form-control emp-code"
+                      id="prefix"
+                      placeholder="Prefix"
+                    />
+                    <span class="form-error"></span>
+                  </div>
+                </div>
+                <div class="col-4">
+                  <div class="me-2" id="start-no-box">
+                    <label
+                      for="exampleFormControlInput1"
+                      class="form-label"
+                    ></label>
+                    <input
+                      type="text"
+                      class="form-control emp-code"
+                      id="start-no"
+                      placeholder="Start No."
+                    />
+                    <span class="form-error"></span>
+                  </div>
+                </div>
+                <div class="col-4">
+                  <div class="me-2" id="code-length-box">
+                    <label for="exampleFormControlInput1" class="form-label">
+                    </label>
+                    <input
+                      type="text"
+                      class="form-control emp-code"
+                      id="code-length"
+                      placeholder="Code Length"
+                    />
+                    <span class="form-error"></span>
+                  </div>
                 </div>
               </div>
-              <div class="col-4">
-                <div class="mb-3">
-                  <label
-                    for="exampleFormControlInput1"
-                    class="form-label"
-                  ></label>
-                  <input
-                    type="null"
-                    class="form-control"
-                    id="null"
-                    placeholder="Start No."
-                  />
-                </div>
-              </div>
-              <div class="col-4">
-                <div class="mb-3">
-                  <label for="exampleFormControlInput1" class="form-label">
-                  </label>
-                  <input
-                    type="null"
-                    class="form-control"
-                    id="exampleFormControlInput1"
-                    placeholder="Code Length"
-                  />
-                </div>
-              </div>
+
               <div class="col-12">
                 <div class="mb-3">
                   <label for="exampleFormControlInput1" class="form-label"
-                    >Address: <span>*</span></label
-                  >
+                    >Address:
+                  </label>
                   <input
                     type="text"
                     class="form-control"
@@ -194,8 +207,8 @@
               <div class="col-6">
                 <div class="mb-3">
                   <label for="exampleFormControlInput1" class="form-label"
-                    >Industry: <span>*</span></label
-                  >
+                    >Industry:
+                  </label>
                   <input
                     type="null"
                     class="form-control"
@@ -207,7 +220,7 @@
               <div class="col-6">
                 <div class="mb-3">
                   <label for="exampleFormControlInput1" class="form-label">
-                    Currency: <span>*</span>
+                    Currency:
                   </label>
                   <input
                     type="null"
@@ -219,22 +232,39 @@
               </div>
               <div class="col-6">
                 <div class="mb-3">
-                  <label for="exampleFormControlInput1" class="form-label"
-                    >Weekend: <span>*</span></label
+                  <label for="weekendSelect" class="form-label">
+                    Weekend:
+                  </label>
+                  <select
+                    id="weekendSelect"
+                    class="form-control js-example-tokenizer"
+                    multiple
                   >
-                  <input
-                    type="null"
-                    class="form-control"
-                    id="exampleFormControlInput1"
-                    placeholder="Select Day"
-                  />
+                    <option selected="selected">Sunday</option>
+                    <option selected="selected">Saturday</option>
+                    <option>Friday</option>
+                    <option>Thursday</option>
+                    <option>Wednesday</option>
+                    <option>Tuesday</option>
+                    <option>Monday</option>
+                  </select>
                 </div>
               </div>
+
+              <script>
+                $(document).ready(function () {
+                  $(".js-example-tokenizer").select2({
+                    tags: true,
+                    tokenSeparators: [",", " "],
+                  });
+                });
+              </script>
+
               <div class="col-6">
                 <div class="mb-3">
                   <label for="exampleFormControlInput1" class="form-label"
-                    >Working Hours: <span>*</span></label
-                  >
+                    >Working Hours:
+                  </label>
                   <input
                     type="null"
                     class="form-control"
@@ -245,9 +275,7 @@
               </div>
               <div class="col-6">
                 <div class="mb-3">
-                  <label for="timeZone" class="form-label"
-                    >Time Zone: <span>*</span></label
-                  >
+                  <label for="timeZone" class="form-label">Time Zone:</label>
                   <select class="form-select" id="timeZone">
                     <option value="GMT">GMT - Greenwich Mean Time</option>
                     <option value="BST" selected>
@@ -282,8 +310,8 @@
               <div class="col-6">
                 <div class="mb-3">
                   <label for="exampleFormControlInput1" class="form-label"
-                    >Time Format: <span>*</span></label
-                  >
+                    >Time Format:
+                  </label>
                   <input
                     type="time"
                     class="form-control"
