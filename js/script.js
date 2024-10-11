@@ -9,16 +9,56 @@ function set_error(id, error) {
   }
 }
 
+function validateWorkHr() {
+  const workHrInput = document.getElementById("work-hr");
+
+  if (workHrInput.value >= 0 || workHrInput.value <= 9) {
+    set_error("work-hr-box", " ");
+  } else {
+    set_error("work-hr-box", "Working hours should be in numbers"); // Clear error if valid
+  }
+}
+
+function validatePhone() {
+  const phoneInput = document.getElementById("phone");
+  const phoneValue = phoneInput.value.trim();
+
+  if (phoneValue.length === 0) {
+    set_error("phone-box", "Phone number is required");
+  } else if (/^[0-9()\-+ ]*$/.test(phoneValue)) {
+    set_error("phone-box", ""); // Clear error if valid
+  } else {
+    set_error(
+      "phone-box",
+      "Phone numbers should only contain numbers, spaces, or +, -, ()"
+    );
+  }
+}
+
+function validateEmail() {
+  const emailInput = document.getElementById("email");
+  const emailValue = emailInput.value.trim();
+  const validEmailRegex =
+    /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+
+  if (emailValue.length === 0) {
+    set_error("email-box", "Email is required");
+  } else if (!emailValue.match(validEmailRegex)) {
+    set_error("email-box", " ");
+  } else {
+    set_error("email-box", " Invalid Email Adress"); // Clear error if valid
+  }
+}
 function validateForm(event) {
   event.preventDefault();
   let errors = [];
-  var emailInput = document.getElementById("email");
-  var contInput = document.getElementById("phone");
+
   var compNameInput = document.getElementById("comp-name");
   var prefixInput = document.getElementById("prefix");
   var startNoInput = document.getElementById("start-no");
   var prefixInput = document.getElementById("prefix");
   var codeLengthInput = document.getElementById("code-length");
+
   if (prefixInput.value.length === 0) {
     set_error("prefix-box", "prefix is required"); // Clear the error if it's valid
   } else {
@@ -42,24 +82,9 @@ function validateForm(event) {
   } else {
     set_error("comp-name-box", "");
   }
-
-  if (contInput.value.length === 0) {
-    set_error("phone-box", "Phone number is required");
-  } else if (/^[0-9()\-+]*$/.test(contInput.value)) {
-    set_error("phone-box", ""); // Clear the error if it's valid
-  } else {
-    set_error("phone-box", "Phone number is invalid");
-  }
-
-  let validRegex =
-    /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-  if (emailInput.value.length === 0) {
-    set_error("email-box", "Email is required");
-  } else if (!emailInput.value.match(validRegex)) {
-    set_error("email-box", "Invalid email address");
-  } else {
-    set_error("email-box", "");
-  }
+  validateWorkHr();
+  validatePhone();
+  validateEmail();
 
   return true; // Or you can return false if validation fails
 }

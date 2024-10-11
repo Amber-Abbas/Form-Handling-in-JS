@@ -129,11 +129,12 @@
                     id="email"
                     name="email"
                     placeholder="Enter your email"
+                    onkeydown="validateEmail()"
                   />
                   <span class="form-error"></span>
                 </div>
               </div>
-              <div class="code-box d-flex" id="emp-code-box">
+              <div class="code-box d-flex">
                 <div class="col-4">
                   <div class="me-2" id="prefix-box">
                     <label for="exampleFormControlInput1" class="form-label"
@@ -199,7 +200,12 @@
                     >
                   </div>
                   <div>
-                    <input type="tel" class="form-control" id="phone" />
+                    <input
+                      type="tel"
+                      class="form-control"
+                      id="phone"
+                      onkeydown="validatePhone()"
+                    />
                   </div>
                   <span class="form-error"></span>
                 </div>
@@ -261,16 +267,18 @@
               </script>
 
               <div class="col-6">
-                <div class="mb-3">
+                <div class="mb-3" id="work-hr-box">
                   <label for="exampleFormControlInput1" class="form-label"
                     >Working Hours:
                   </label>
                   <input
                     type="null"
                     class="form-control"
-                    id="exampleFormControlInput1"
+                    id="work-hr"
                     placeholder="8"
+                    onkeydown="validateWorkHr()"
                   />
+                  <span class="form-error"></span>
                 </div>
               </div>
               <div class="col-6">
